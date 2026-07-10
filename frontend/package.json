@@ -1,0 +1,13 @@
+{
+  "name": "bm-music-streaming-frontend",
+  "version": "1.0.0",
+  "description": "Responsive user interface for BM MUSIC STREAMING",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Frontend baseline ready. Open index.html in a browser.'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
