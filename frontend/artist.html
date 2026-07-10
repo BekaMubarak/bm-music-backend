@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BM MUSIC STREAMING - Artist Panel</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .artist-container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+    }
+    .artist-container h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      background: #1a1d2e;
+      border: 1px solid #2a2f4c;
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 1rem;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    }
+    .file-input-wrapper {
+      position: relative;
+      margin-top: 5px;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      margin-top: 15px;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover {
+      color: var(--neon-pink);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="artist-container">
+    <h2>ARTIST <span class="blue-glow">UPLOAD HUB</span></h2>
+    
+    <form id="upload-song-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>Song Title</label>
+        <input type="text" id="track-title" required placeholder="Enter track title...">
+      </div>
+
+      <div class="form-group">
+        <label>Genre / Style</label>
+        <select id="track-genre" required>
+          <option value="">-- Select Music Genre --</option>
+          <option value="Dancehall">Dancehall</option>
+          <option value="Reggae">Reggae</option>
+          <option value="Afrobeats">Afrobeats</option>
+          <option value="Bongo Flava">Bongo Flava</option>
+          <option value="Hip Hop">Hip Hop</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Audio File (.mp3, .wav)</label>
+        <div class="file-input-wrapper">
+          <input type="file" id="track-audio" accept="audio/*" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cover Artwork Image (.jpg, .png)</label>
+        <div class="file-input-wrapper">
+          <input type="file" id="track-cover" accept="image/*" required>
+        </div>
+      </div>
+
+      <button type="submit" class="neon-button submit-btn">SUBMIT TRACK FOR REVIEW</button>
+    </form>
+
+    <a href="dashboard.html" class="back-link">← Return to Dashboard</a>
+  </div>
+
+  <script src="js/artist.js"></script>
+</body>
+</html>
+
