@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BM MUSIC STREAMING - Login</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .auth-container {
+      max-width: 450px;
+      margin: 100px auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 42, 116, 0.2);
+      box-shadow: 0 0 30px rgba(255, 42, 116, 0.1);
+      text-align: center;
+    }
+    .auth-container h2 {
+      margin-bottom: 24px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px;
+      background: #1a1d2e;
+      border: 1px solid #2a2f4c;
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 10px rgba(255, 42, 116, 0.3);
+    }
+    .auth-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+    }
+    .toggle-link {
+      margin-top: 20px;
+      display: block;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+    }
+    .toggle-link:hover {
+      color: var(--neon-blue);
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container">
+    <div id="login-box">
+      <h2>BM MUSIC <span class="pink-glow">STREAMING</span></h2>
+      <form id="login-form">
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="login-email" required placeholder="enter your email">
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="login-password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="neon-button auth-btn">LOG IN</button>
+      </form>
+      <span class="toggle-link" onclick="toggleAuthForm()">Don't have an account? Sign Up</span>
+    </div>
+
+    <div id="register-box" class="hidden">
+      <h2>CREATE <span class="blue-glow">ACCOUNT</span></h2>
+      <form id="register-form">
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="reg-name" required placeholder="John Doe">
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="reg-email" required placeholder="name@example.com">
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="reg-password" required placeholder="Create strong password">
+        </div>
+        <div class="input-group">
+          <label>Account Type</label>
+          <select id="reg-role">
+            <option value="user">Listener (Standard Account)</option>
+            <option value="artist">Artist (Upload Music)</option>
+          </select>
+        </div>
+        <button type="submit" class="neon-button auth-btn" style="border-color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink);">REGISTER</button>
+      </form>
+      <span class="toggle-link" onclick="toggleAuthForm()">Already have an account? Log In</span>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
