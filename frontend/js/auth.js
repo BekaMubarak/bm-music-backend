@@ -7,25 +7,41 @@ function toggleAuthForm() {
   registerBox.classList.toggle('hidden');
 }
 
-// Handle Form Submissions
-document.getElementById('login-form').addEventListener('submit', function(e) {
+// Handle Login Submission
+document.getElementById('login-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
   
-  console.log("Attempting login with:", email);
-  // Future deployment link connection logic goes here!
-  alert("Form layout setup valid! Backend endpoint hookup is next.");
+  // Use the global request helper from app.js to talk to our server
+  const response = await makeSecureRequest('/auth/login', 'POST', { email, password });
+
+  if (response.success) {
+    // Save the security token so the app remembers who you are
+    localStorage.setItem('bm_auth_token', response.token);
+    localStorage.setItem('bm_user_role', response.user.role);
+    
+    // Redirect straight into the music player dashboard
+    window.location.href = 'dashboard.html';
+  } else {
+    alert("Login Failed: " + response.message);
+  }
 });
 
-document.getElementById('register-form').addEventListener('submit', function(e) {
+// Handle Registration Submission
+document.getElementById('register-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const name = document.getElementById('reg-name').value;
   const email = document.getElementById('reg-email').value;
   const password = document.getElementById('reg-password').value;
   const role = document.getElementById('reg-role').value;
   
-  console.log("Registering user profile:", { name, email, role });
-  alert("Registration form baseline capture active!");
-});
+  const response = await makeSecureRequest('/auth/register', 'POST', { name, email, password, role });
 
+  if (response.success) {
+    alert("Account created successfully! Shifting to login screen.");
+    toggleAuthForm();
+  } else {
+    alert("Registration Failed: " + response.message);
+  }
+});
