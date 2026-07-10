@@ -1,0 +1,53 @@
+/* Global Reset and Color Variables */
+:root {
+  --bg-dark: #0a0b10;
+  --bg-card: #121420;
+  --neon-pink: #ff2a74;
+  --neon-blue: #00f0ff;
+  --text-main: #ffffff;
+  --text-muted: #a0a5c0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Reusable Styling Components */
+.neon-button {
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--text-main);
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 8px var(--neon-blue);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  background: var(--neon-blue);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.pink-glow {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.blue-glow {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
